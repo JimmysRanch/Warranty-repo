@@ -59,11 +59,6 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="lg:col-span-7 flex flex-col gap-6"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium w-fit">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                  Maximize Fixed Ops Profitability
-                </div>
-                
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] text-white" style={{ fontFamily: 'var(--font-display)' }}>
                   Get Paid the Warranty Reimbursement <br />
                   <span className="text-gradient-gold">You've Already Earned</span>
