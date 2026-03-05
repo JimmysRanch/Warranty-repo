@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Warranty Reimbursement Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["DM Sans", "sans-serif"],
+              display: ["Outfit", "sans-serif"],
+            },
+            colors: {
+              background: "hsl(222 47% 5%)",
+              foreground: "hsl(210 40% 98%)",
+              card: "hsl(222 47% 7%)",
+              "card-foreground": "hsl(210 40% 98%)",
+              muted: "hsl(217 32% 17%)",
+              "muted-foreground": "hsl(215 20% 65%)",
+              border: "hsl(217 32% 17%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: hsl(222 47% 5%);
+        color: hsl(210 40% 98%);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: rgba(245, 158, 11, 0.3);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Outfit", sans-serif;
+        letter-spacing: -0.025em;
+      }
+
+      .text-gradient-gold {
+        background: linear-gradient(to right, #fde68a, #f59e0b, #d97706);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glow-bg-blue {
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(59, 130, 246, 0.15) 0%,
+          rgba(11, 15, 25, 0) 60%
+        );
+      }
+
+      .glow-bg-gold {
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(245, 158, 11, 0.12) 0%,
+          rgba(11, 15, 25, 0) 60%
+        );
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      .shimmer-effect {
+        background: linear-gradient(
+          45deg,
+          transparent 25%,
+          rgba(255, 255, 255, 0.2) 50%,
+          transparent 75%,
+          transparent 100%
+        );
+        background-size: 250% 250%;
+        animation: shimmer 3s linear infinite;
+      }
+
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .animate-pulse-dot {
+        animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .animate-fade-in-scale {
+        animation: fadeInScale 0.8s ease-out 0.2s forwards;
+        opacity: 0;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: hsl(222 47% 5%);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: hsl(217 32% 17%);
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: hsl(215 20% 65%);
+      }
+
+      /* Accordion */
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      }
+      .accordion-content.open {
+        max-height: 200px;
+      }
+      .accordion-trigger svg {
+        transition: transform 0.3s ease;
+      }
+      .accordion-trigger.open svg {
+        transform: rotate(180deg);
+      }
+
+      /* Form input focus styles */
+      input:focus {
+        outline: none;
+        border-color: rgba(245, 158, 11, 0.5);
+        box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen relative">
+    <!-- Global Background Glows -->
+    <div
+      class="fixed inset-0 glow-bg-blue opacity-50 pointer-events-none z-0"
+    ></div>
+    <div
+      class="fixed inset-0 glow-bg-gold opacity-30 pointer-events-none z-0 translate-y-1/2"
+    ></div>
+
+    <!-- Navigation Header -->
+    <header
+      class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-white/5"
+      style="background: hsla(222, 47%, 5%, 0.8)"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-2">
+          <!-- ShieldCheck Icon -->
+          <svg
+            class="w-8 h-8 text-amber-500"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+            />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+          <span
+            class="font-bold text-xl tracking-tight text-white"
+            style="font-family: Outfit, sans-serif"
+          >
+            WARRANTY
+            <span class="text-amber-500">REIMBURSEMENT</span>
+          </span>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            href="#how-it-works"
+            class="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+            >How it Works</a
+          >
+          <a
+            href="#what-you-get"
+            class="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+            >What You Get</a
+          >
+          <a
+            href="#pricing"
+            class="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+            >Pricing</a
+          >
+          <a
+            href="#faq"
+            class="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+            >FAQ</a
+          >
+        </nav>
+
+        <button
+          onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+          class="hidden sm:flex items-center px-5 py-2.5 bg-white/10 text-white hover:bg-white/20 border border-white/10 rounded-full text-sm font-medium transition-colors"
+        >
+          Get Started
+        </button>
+      </div>
+    </header>
+
+    <main class="relative z-10 pt-20">
+      <!-- HERO SECTION -->
+      <section
+        class="min-h-[90vh] flex flex-col justify-center py-20 overflow-hidden relative"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-7 flex flex-col gap-6 animate-fade-in-up">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium w-fit"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-blue-500 animate-pulse-dot"
+                ></span>
+                Maximize Fixed Ops Profitability
+              </div>
+
+              <h1
+                class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] text-white"
+                style="font-family: Outfit, sans-serif"
+              >
+                Get Paid the Warranty Reimbursement <br />
+                <span class="text-gradient-gold">You've Already Earned</span>
+              </h1>
+
+              <p
+                class="text-lg sm:text-xl max-w-2xl leading-relaxed"
+                style="color: hsl(215 20% 65%)"
+              >
+                We help you file the submission the right way — fast, clean, and
+                compliant — so you capture the reimbursement your state rules
+                allow.
+              </p>
+
+              <div class="flex flex-col gap-3 mt-2">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-4 h-4 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-slate-300 font-medium"
+                    >No upfront costs - simple flat fee</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-4 h-4 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-slate-300 font-medium"
+                    >Compliant with complex state laws</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-4 h-4 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-slate-300 font-medium"
+                    >Requires minimal dealership staff time</span
+                  >
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                <button
+                  onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+                  class="h-14 px-8 text-lg font-bold rounded-xl text-black transition-all duration-300"
+                  style="
+                    background: linear-gradient(to right, #f59e0b, #d97706);
+                    box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+                  "
+                  onmouseover="this.style.background='linear-gradient(to right, #fbbf24, #f59e0b)'; this.style.boxShadow='0 0 30px rgba(245,158,11,0.4)'"
+                  onmouseout="this.style.background='linear-gradient(to right, #f59e0b, #d97706)'; this.style.boxShadow='0 0 20px rgba(245,158,11,0.25)'"
+                >
+                  Get Started (15-Min Call)
+                </button>
+                <button
+                  onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+                  class="h-14 px-8 text-lg font-bold rounded-xl border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm transition-colors"
+                >
+                  Request a Quick Estimate
+                </button>
+              </div>
+
+              <div
+                class="flex flex-wrap items-center gap-4 sm:gap-8 mt-8 pt-8 border-t border-white/10"
+              >
+                <div class="flex flex-col gap-1">
+                  <span
+                    class="text-xs uppercase tracking-wider font-semibold"
+                    style="color: hsl(215 20% 65%)"
+                    >Trusted By Top Brands</span
+                  >
+                  <div
+                    class="flex items-center gap-6 text-slate-400 font-bold opacity-70"
+                  >
+                    <span>FORD</span>
+                    <span>TOYOTA</span>
+                    <span>HONDA</span>
+                    <span>CHEVROLET</span>
+                    <span>JEEP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Graphic -->
+            <div class="lg:col-span-5 relative animate-fade-in-scale">
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-blue-500/20 blur-3xl -z-10 rounded-[3rem]"
+              ></div>
+              <div
+                class="backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden group hover:border-amber-500/30 transition-colors duration-500"
+                style="background: hsla(222, 47%, 7%, 0.4)"
+              >
+                <div
+                  class="absolute top-0 left-0 w-full h-1 opacity-50"
+                  style="
+                    background: linear-gradient(
+                      to right,
+                      #3b82f6,
+                      #f59e0b,
+                      transparent
+                    );
+                  "
+                ></div>
+
+                <div class="flex items-center justify-between mb-8">
+                  <h3
+                    class="text-sm font-semibold uppercase tracking-widest"
+                    style="color: hsl(215 20% 65%)"
+                  >
+                    Potential Reimbursement
+                  </h3>
+                  <div
+                    class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center"
+                  >
+                    <!-- BarChart3 Icon -->
+                    <svg
+                      class="w-5 h-5 text-green-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M3 3v18h18" />
+                      <path d="M18 17V9" />
+                      <path d="M13 17V5" />
+                      <path d="M8 17v-3" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div
+                  class="text-6xl sm:text-7xl font-bold text-white tracking-tighter mb-2"
+                  style="font-family: Outfit, sans-serif"
+                >
+                  +$250k<span class="text-amber-500">+</span>
+                </div>
+                <p class="text-slate-400 font-medium mb-12">
+                  Average typical increase for franchised dealers.
+                </p>
+
+                <!-- Mock Chart -->
+                <div class="h-48 flex items-end gap-4 relative">
+                  <!-- Grid lines -->
+                  <div
+                    class="absolute inset-0 flex flex-col justify-between opacity-20 pointer-events-none"
+                  >
+                    <div
+                      class="border-b border-dashed border-white w-full"
+                    ></div>
+                    <div
+                      class="border-b border-dashed border-white w-full"
+                    ></div>
+                    <div
+                      class="border-b border-dashed border-white w-full"
+                    ></div>
+                    <div
+                      class="border-b border-dashed border-white w-full"
+                    ></div>
+                  </div>
+
+                  <div class="w-1/2 relative h-24">
+                    <div
+                      class="absolute -top-8 w-full text-center text-sm font-semibold text-slate-400"
+                    >
+                      Baseline
+                    </div>
+                    <div
+                      class="w-full h-full rounded-t-xl border border-white/5 border-b-0"
+                      style="background: hsl(222 47% 10%)"
+                    ></div>
+                  </div>
+
+                  <div class="w-1/2 relative h-full">
+                    <div
+                      class="absolute -top-10 w-full text-center text-sm font-bold text-amber-400"
+                    >
+                      Optimized
+                    </div>
+                    <div
+                      class="absolute inset-0 rounded-t-xl opacity-90"
+                      style="
+                        background: linear-gradient(to top, #d97706, #fbbf24);
+                        box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+                      "
+                    >
+                      <div
+                        class="absolute inset-0 shimmer-effect rounded-t-xl"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="mt-6 flex justify-between text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                >
+                  <span>Current Rate</span>
+                  <span>State Max Rate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY THIS MATTERS / HOW IT WORKS SECTION -->
+      <section
+        id="how-it-works"
+        class="py-24 border-y border-white/5 relative"
+        style="background: rgba(0, 0, 0, 0.4)"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2
+              class="text-3xl sm:text-4xl font-bold text-white mb-6"
+              style="font-family: Outfit, sans-serif"
+            >
+              Warranty reimbursement is a hidden
+              <span class="text-amber-500">profit lever</span>.
+            </h2>
+            <p class="text-lg" style="color: hsl(215 20% 65%)">
+              Many dealerships settle for default OEM reimbursement rates. State
+              laws allow you to charge retail rates for warranty work. We bridge
+              that gap without disrupting your service drive.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div
+              class="border border-white/10 rounded-2xl p-8 hover:bg-white/5 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.3)"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6"
+              >
+                <!-- Database Icon -->
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <ellipse cx="12" cy="5" rx="9" ry="3" />
+                  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+                  <path d="M3 12A9 3 0 0 0 21 12" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">
+                Data-Driven Approach
+              </h3>
+              <p style="color: hsl(215 20% 65%)">
+                We extract RO data directly from your DMS to build an undeniable
+                case file.
+              </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+              class="border border-white/10 rounded-2xl p-8 hover:bg-white/5 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.3)"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6"
+              >
+                <!-- Scale Icon -->
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"
+                  />
+                  <path
+                    d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"
+                  />
+                  <path d="M7 21h10" />
+                  <path d="M12 3v18" />
+                  <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">
+                Designed Around State Law
+              </h3>
+              <p style="color: hsl(215 20% 65%)">
+                Every state has different statutes. We tailor your submission
+                perfectly to your local laws.
+              </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+              class="border border-white/10 rounded-2xl p-8 hover:bg-white/5 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.3)"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6"
+              >
+                <!-- Zap Icon -->
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">
+                Minimizes Manual Admin
+              </h3>
+              <p style="color: hsl(215 20% 65%)">
+                Your service managers are busy. We handle the paperwork, they
+                keep writing tickets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT YOU GET SECTION -->
+      <section id="what-you-get" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2
+                class="text-3xl sm:text-4xl font-bold text-white mb-6"
+                style="font-family: Outfit, sans-serif"
+              >
+                Exactly what you get for
+                <span class="text-gradient-gold">$7,000</span>
+              </h2>
+              <p class="text-lg mb-8" style="color: hsl(215 20% 65%)">
+                No hidden fees, no percentage of your uplift. Just a clean, flat
+                fee for an expert, done-for-you submission package.
+              </p>
+
+              <div class="space-y-4">
+                <div
+                  class="flex items-center gap-4 bg-white/5 border border-white/5 rounded-xl p-4"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-5 h-5 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-white font-medium text-lg"
+                    >Complete warranty reimbursement review</span
+                  >
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white/5 border border-white/5 rounded-xl p-4"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-5 h-5 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-white font-medium text-lg"
+                    >Repair Order (RO) sample analysis</span
+                  >
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white/5 border border-white/5 rounded-xl p-4"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-5 h-5 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-white font-medium text-lg"
+                    >Full submission package preparation</span
+                  >
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white/5 border border-white/5 rounded-xl p-4"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-5 h-5 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-white font-medium text-lg"
+                    >One complete formal submission to OEM</span
+                  >
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white/5 border border-white/5 rounded-xl p-4"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0"
+                  >
+                    <svg
+                      class="w-5 h-5 text-amber-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <span class="text-white font-medium text-lg"
+                    >Follow-up support and guidance</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+              <div
+                class="absolute left-[27px] top-4 bottom-4 w-0.5 opacity-30"
+                style="
+                  background: linear-gradient(
+                    to bottom,
+                    #3b82f6,
+                    #f59e0b,
+                    transparent
+                  );
+                "
+              ></div>
+
+              <div class="space-y-12">
+                <!-- Phase 1 -->
+                <div class="relative flex gap-6 pl-16">
+                  <div
+                    class="absolute left-0 top-0 w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center z-10 shadow-lg"
+                    style="background: hsl(222 47% 7%)"
+                  >
+                    <!-- Database Icon -->
+                    <svg
+                      class="w-6 h-6 text-white/70"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+                      <path d="M3 12A9 3 0 0 0 21 12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-1"
+                    >
+                      Week 1
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">
+                      Data Collection
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="relative flex gap-6 pl-16">
+                  <div
+                    class="absolute left-0 top-0 w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center z-10 shadow-lg"
+                    style="background: hsl(222 47% 7%)"
+                  >
+                    <!-- FileText Icon -->
+                    <svg
+                      class="w-6 h-6 text-white/70"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+                      />
+                      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                      <path d="M10 9H8" />
+                      <path d="M16 13H8" />
+                      <path d="M16 17H8" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-1"
+                    >
+                      Week 2
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">
+                      Analysis & Package Creation
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="relative flex gap-6 pl-16">
+                  <div
+                    class="absolute left-0 top-0 w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center z-10 shadow-lg"
+                    style="background: hsl(222 47% 7%)"
+                  >
+                    <!-- ArrowRight Icon -->
+                    <svg
+                      class="w-6 h-6 text-white/70"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-1"
+                    >
+                      Week 3
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">
+                      Submission & Follow-up
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING CTA -->
+      <section id="pricing" class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="border border-amber-500/30 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden"
+            style="
+              background: linear-gradient(
+                to bottom right,
+                hsl(222 47% 8%),
+                black
+              );
+              box-shadow: 0 0 50px rgba(245, 158, 11, 0.1);
+            "
+          >
+            <div
+              class="absolute inset-0"
+              style="
+                background: radial-gradient(
+                  circle at top,
+                  rgba(245, 158, 11, 0.15),
+                  transparent 50%
+                );
+              "
+            ></div>
+
+            <h2
+              class="text-2xl font-semibold uppercase tracking-widest mb-4 relative"
+              style="color: hsl(215 20% 65%)"
+            >
+              Flat Fee Pricing
+            </h2>
+            <div
+              class="text-6xl sm:text-7xl font-bold text-white mb-6 relative"
+              style="font-family: Outfit, sans-serif"
+            >
+              $7,000
+            </div>
+            <p class="text-xl text-slate-300 mb-8 max-w-lg mx-auto relative">
+              One store = One full submission package. Start maximizing your
+              revenue today.
+            </p>
+
+            <button
+              onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+              class="h-16 px-10 text-xl font-bold rounded-xl text-black transition-all duration-300 inline-flex items-center relative"
+              style="
+                background: linear-gradient(to right, #f59e0b, #d97706);
+                box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+              "
+              onmouseover="this.style.background='linear-gradient(to right, #fbbf24, #f59e0b)'; this.style.boxShadow='0 0 40px rgba(245,158,11,0.5)'"
+              onmouseout="this.style.background='linear-gradient(to right, #f59e0b, #d97706)'; this.style.boxShadow='0 0 20px rgba(245,158,11,0.25)'"
+            >
+              Start my submission
+              <svg
+                class="w-6 h-6 ml-2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section
+        id="faq"
+        class="py-24 border-t border-white/5"
+        style="background: rgba(0, 0, 0, 0.4)"
+      >
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl sm:text-4xl font-bold text-white mb-4"
+              style="font-family: Outfit, sans-serif"
+            >
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div class="space-y-4" id="faq-accordion">
+            <!-- FAQ 1 -->
+            <div
+              class="border border-white/10 rounded-xl px-6 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.5)"
+              data-faq
+            >
+              <button
+                class="accordion-trigger w-full flex items-center justify-between py-6 text-lg font-semibold text-white hover:text-amber-400 text-left"
+                onclick="toggleAccordion(this)"
+              >
+                <span>Is this legal / allowed by the OEM?</span>
+                <svg
+                  class="w-5 h-5 shrink-0 ml-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <p class="pb-6 text-base leading-relaxed" style="color: hsl(215 20% 65%)">
+                  Yes. State franchise laws protect dealers and mandate that OEMs
+                  pay retail rates for warranty work, provided the proper
+                  submission process is followed.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div
+              class="border border-white/10 rounded-xl px-6 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.5)"
+              data-faq
+            >
+              <button
+                class="accordion-trigger w-full flex items-center justify-between py-6 text-lg font-semibold text-white hover:text-amber-400 text-left"
+                onclick="toggleAccordion(this)"
+              >
+                <span>Does this take my team a ton of time?</span>
+                <svg
+                  class="w-5 h-5 shrink-0 ml-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <p class="pb-6 text-base leading-relaxed" style="color: hsl(215 20% 65%)">
+                  No. Our process is designed to be turnkey. We pull the data,
+                  analyze it, and build the package. Your management team simply
+                  reviews and signs off.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div
+              class="border border-white/10 rounded-xl px-6 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.5)"
+              data-faq
+            >
+              <button
+                class="accordion-trigger w-full flex items-center justify-between py-6 text-lg font-semibold text-white hover:text-amber-400 text-left"
+                onclick="toggleAccordion(this)"
+              >
+                <span>Parts or labor first?</span>
+                <svg
+                  class="w-5 h-5 shrink-0 ml-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <p class="pb-6 text-base leading-relaxed" style="color: hsl(215 20% 65%)">
+                  We typically analyze both to see where your greatest uplift
+                  potential lies. The strategy depends on your specific
+                  dealership's mix and state statutes.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div
+              class="border border-white/10 rounded-xl px-6 transition-colors"
+              style="background: hsla(222, 47%, 7%, 0.5)"
+              data-faq
+            >
+              <button
+                class="accordion-trigger w-full flex items-center justify-between py-6 text-lg font-semibold text-white hover:text-amber-400 text-left"
+                onclick="toggleAccordion(this)"
+              >
+                <span>How long until money shows up?</span>
+                <svg
+                  class="w-5 h-5 shrink-0 ml-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <p class="pb-6 text-base leading-relaxed" style="color: hsl(215 20% 65%)">
+                  Once submitted, the OEM typically has 30 to 45 days to respond
+                  and approve the new rate depending on your state. You'll see
+                  the increased revenue on subsequent warranty claims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            id="contact-form-container"
+            class="backdrop-blur-xl border border-white/5 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+            style="background: hsla(222, 47%, 7%, 0.5)"
+          >
+            <!-- Decorative background glows -->
+            <div
+              class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10 pointer-events-none"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -z-10 pointer-events-none"
+            ></div>
+
+            <div
+              class="mb-8 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-8"
+              style="border-color: hsl(217 32% 17%)"
+            >
+              <div>
+                <h3
+                  class="text-2xl font-bold text-white"
+                  style="font-family: Outfit, sans-serif"
+                >
+                  Want us to build your submission package?
+                </h3>
+                <p class="mt-2" style="color: hsl(215 20% 65%)">
+                  Get an exact estimate on your potential reimbursement bump.
+                </p>
+              </div>
+              <button
+                class="shrink-0 bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 hover:text-blue-300 border border-blue-500/30 rounded-full px-6 py-3 inline-flex items-center font-medium transition-colors"
+              >
+                Book a 15-minute call
+                <svg
+                  class="w-4 h-4 ml-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <form id="contact-form" class="space-y-6" onsubmit="handleSubmit(event)">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style="color: hsl(215 20% 65%)"
+                    for="name"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    required
+                    class="w-full h-12 px-4 rounded-xl text-base text-white border"
+                    style="
+                      background: hsla(222, 47%, 5%, 0.5);
+                      border-color: rgba(255, 255, 255, 0.1);
+                    "
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style="color: hsl(215 20% 65%)"
+                    for="dealership"
+                    >Dealership Name</label
+                  >
+                  <input
+                    type="text"
+                    id="dealership"
+                    name="dealership"
+                    placeholder="ABC Motors"
+                    required
+                    class="w-full h-12 px-4 rounded-xl text-base text-white border"
+                    style="
+                      background: hsla(222, 47%, 5%, 0.5);
+                      border-color: rgba(255, 255, 255, 0.1);
+                    "
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style="color: hsl(215 20% 65%)"
+                    for="email"
+                    >Work Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="john@abcmotors.com"
+                    required
+                    class="w-full h-12 px-4 rounded-xl text-base text-white border"
+                    style="
+                      background: hsla(222, 47%, 5%, 0.5);
+                      border-color: rgba(255, 255, 255, 0.1);
+                    "
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style="color: hsl(215 20% 65%)"
+                    for="phone"
+                    >Direct Phone</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="(555) 123-4567"
+                    required
+                    class="w-full h-12 px-4 rounded-xl text-base text-white border"
+                    style="
+                      background: hsla(222, 47%, 5%, 0.5);
+                      border-color: rgba(255, 255, 255, 0.1);
+                    "
+                  />
+                </div>
+
+                <div class="md:col-span-2">
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style="color: hsl(215 20% 65%)"
+                    for="oemBrands"
+                    >OEM Brands (If known)</label
+                  >
+                  <input
+                    type="text"
+                    id="oemBrands"
+                    name="oemBrands"
+                    placeholder="Ford, Toyota, Honda..."
+                    class="w-full h-12 px-4 rounded-xl text-base text-white border"
+                    style="
+                      background: hsla(222, 47%, 5%, 0.5);
+                      border-color: rgba(255, 255, 255, 0.1);
+                    "
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full h-14 text-lg font-bold rounded-xl text-black transition-all duration-300 inline-flex items-center justify-center"
+                style="
+                  background: linear-gradient(to right, #f59e0b, #d97706);
+                  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+                "
+                onmouseover="this.style.background='linear-gradient(to right, #fbbf24, #f59e0b)'; this.style.boxShadow='0 0 30px rgba(245,158,11,0.4)'"
+                onmouseout="this.style.background='linear-gradient(to right, #f59e0b, #d97706)'; this.style.boxShadow='0 0 20px rgba(245,158,11,0.25)'"
+              >
+                Get Started
+                <svg
+                  class="ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Success State (hidden by default) -->
+          <div
+            id="contact-success"
+            class="backdrop-blur-xl border rounded-3xl p-8 md:p-12 text-center shadow-2xl flex-col items-center justify-center min-h-[400px] hidden"
+            style="
+              background: hsla(222, 47%, 7%, 0.5);
+              border-color: hsl(217 32% 17%);
+            "
+          >
+            <div
+              class="w-20 h-20 bg-amber-500/20 text-amber-500 rounded-full flex items-center justify-center mb-6 mx-auto"
+              style="box-shadow: 0 0 30px rgba(245, 158, 11, 0.3)"
+            >
+              <svg
+                class="w-10 h-10"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3
+              class="text-3xl font-bold text-white mb-4"
+              style="font-family: Outfit, sans-serif"
+            >
+              You're All Set!
+            </h3>
+            <p class="text-lg max-w-md mx-auto" style="color: hsl(215 20% 65%)">
+              Thanks for reaching out. A warranty reimbursement specialist will
+              contact you shortly to review your potential.
+            </p>
+            <button
+              onclick="resetForm()"
+              class="mt-8 px-6 py-2.5 border rounded-lg text-white hover:bg-white/5 transition-colors"
+              style="border-color: hsl(217 32% 17%)"
+            >
+              Submit another request
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="border-t border-white/5 py-8 text-center text-slate-500 text-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <div class="flex items-center gap-2">
+          <svg
+            class="w-5 h-5 text-amber-600"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+            />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+          <span
+            class="font-semibold text-white tracking-wider"
+            style="font-family: Outfit, sans-serif"
+            >WARRANTY REIMBURSEMENT</span
+          >
+        </div>
+        <p id="copyright-text"></p>
+      </div>
+    </footer>
+
+    <script>
+      // Set copyright year dynamically
+      document.getElementById("copyright-text").textContent =
+        "\u00A9 " +
+        new Date().getFullYear() +
+        " Warranty Reimbursement Solutions. All rights reserved.";
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Accordion toggle
+      function toggleAccordion(trigger) {
+        var content = trigger.nextElementSibling;
+        var parent = trigger.closest("[data-faq]");
+        var isOpen = content.classList.contains("open");
+
+        // Close all accordions
+        document.querySelectorAll(".accordion-content").forEach(function (el) {
+          el.classList.remove("open");
+        });
+        document.querySelectorAll(".accordion-trigger").forEach(function (el) {
+          el.classList.remove("open");
+        });
+        document.querySelectorAll("[data-faq]").forEach(function (el) {
+          el.style.borderColor = "rgba(255, 255, 255, 0.1)";
+        });
+
+        // Toggle current if it was closed
+        if (!isOpen) {
+          content.classList.add("open");
+          trigger.classList.add("open");
+          parent.style.borderColor = "rgba(245, 158, 11, 0.3)";
+        }
+      }
+
+      // Form submission
+      function handleSubmit(e) {
+        e.preventDefault();
+        document.getElementById("contact-form-container").classList.add("hidden");
+        var successEl = document.getElementById("contact-success");
+        successEl.classList.remove("hidden");
+        successEl.classList.add("flex");
+      }
+
+      // Reset form
+      function resetForm() {
+        document.getElementById("contact-form").reset();
+        document.getElementById("contact-form-container").classList.remove("hidden");
+        var successEl = document.getElementById("contact-success");
+        successEl.classList.add("hidden");
+        successEl.classList.remove("flex");
+      }
+    </script>
+  </body>
+</html>
